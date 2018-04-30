@@ -172,7 +172,6 @@ class LstmRNN(object):
         merged_test_labels = []
 
         for label_, d_ in enumerate(dataset_list):
-            print(d_.test_X)
             merged_test_X += list(d_.test_X)
             merged_test_y += list(d_.test_y)
             merged_test_labels += [[label_]] * len(d_.test_X)

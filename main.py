@@ -1,3 +1,4 @@
+from __future__ import print_function
 import os
 import pandas as pd
 import pprint
@@ -76,15 +77,12 @@ def load_sp500(input_size, num_steps, k=None, target_symbol=None, test_ratio=0.0
 def main(_):
     pp.pprint(flags.FLAGS.__flags)
 
-    print ("a")
     # gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.333)
     run_config = tf.ConfigProto()
     pp.pprint(flags.FLAGS.__flags)
     run_config.gpu_options.allow_growth = True
-    print ("b")
 
     with tf.Session(config=run_config) as sess:
-        print ("c")
         rnn_model = LstmRNN(
             sess,
             FLAGS.stock_count,
@@ -94,10 +92,8 @@ def main(_):
             input_size=FLAGS.input_size,
             embed_size=FLAGS.embed_size,
         )
-        print ("d")
 
         show_all_variables()
-        print ("e")
 
         ###list of stockDataSet objects to test tensorflow on
         stock_data_list = load_sp500(
@@ -106,15 +102,15 @@ def main(_):
             k=FLAGS.stock_count,
             target_symbol=FLAGS.stock_symbol,
         )
-        print ("f")
 
         if FLAGS.train:
             rnn_model.train(stock_data_list, FLAGS)
         else:
             if not rnn_model.load()[0]:
                 raise Exception("[!] Train a model first, then run test mode")
-        print ("g")
-    print ("h")
+            else:
+                print(rnn_model.load()[1])
+                
 
 
 if __name__ == '__main__':
