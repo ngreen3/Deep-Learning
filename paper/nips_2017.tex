@@ -37,9 +37,11 @@
 \maketitle
 
 \begin{abstract}
-Predicting stock returns is something that has been attempted many times. 
-When machine learning became popular the techniques were used to train a computer to recognize patterns. 
-Neural networks, a form of machine learning have also been used, but the most recent one is Deep Learning. 
+Predicting stock returns is something that has been attempted many times.
+Everyone was looking for a better method than guess work.
+When machine learning became popular the techniques were used to train a computer to recognize patterns.
+Machine Learning was successful, and allowed the computer to do better at tasks the more it did them.
+Neural networks, a form of machine learning have also been used, with success, but the most recent one is Deep Learning. 
 Deep Learning is a neural network that has many layers of neurons, it has shown high performance in image recognition. 
 This paper will focus on how deep learning has come into play in the stock market.
 \end{abstract}
@@ -117,7 +119,6 @@ As mentioned earlier there is a chance that the whole thing ends up zeroed out.
 If not used correctly you could end up with 40\% of the network dead and never activating.[9]
 
 \section{Training}
-
 A deep neural net consists of multiple layers of perceptrons, an input layer, multiple hidden layers, and an output layer.
 For each node in the hidden layer, and output layer, the value of that node is:
 \[\sum x_i * w_i\]
@@ -150,10 +151,12 @@ These values tell you how the network is working.
 When tests are run the program will print out graphs every few epochs that show the expected result compared to what the program guessed. 
 The graphs below are an example of what that would look like.
 They are the graphs printed from epoch 11, 22, 37, and 49.
-You can see that the result is changing, sometimes getting better, sometimes worse.\\
+You can see that the result is changing, sometimes getting better, sometimes worse.\\	
 
 \includegraphics[width=.5\textwidth]{AAPL_epoch11_step2097.png}
-\includegraphics[width=.5\textwidth]{AAPL_epoch22_step4193.png}
+\includegraphics[width=.5\textwidth]{AAPL_epoch22_step4193.png}\\
+
+
 \includegraphics[width=.5\textwidth]{AAPL_epoch37_step5233.png}
 \includegraphics[width=.5\textwidth]{AAPL_epoch49_step2065.png}
 
@@ -188,10 +191,20 @@ The hidden nodes and output node are defined by the functions that produce their
 The program needs to be run with the same command-line options that it was trained with.
 If the command-line options don't match python is unable to make sense of the file.
 
-\section{Results of Running the Program}
-The program was run with two hidden layers, three hidden layers, four hidden layers, and five hidden layers.
+\subsection{Tensorboard}
+Tensorboard was also running with the program. It allows interaction with the graph that tensorflow creates to run the program. It also shows the changes in variables over time. This makes it easy to see what the program is doing, and to debug possible issues. The graph currently being used is shown below.
 
-The two hidden layer network performed very similar to the single layer.\\
+\includegraphics[width=\textwidth]{png.png}
+
+This graph shows the whole program. Each of the rectangular boxes expands into a graph of their own. The one labeled dynamic\_RNN is the graph that calculates the result, is the neural net.
+
+\section{Results of Running the Program}
+The program was run with two hidden layers, three hidden layers, four hidden layers, and five hidden layers. 
+The results are better the fewer layers there are.
+
+
+The two hidden layer network performed very similar to the single layer in the graphs above. \\
+
 \includegraphics[width=.5\textwidth]{AAPL_epoch03_step2.png}
 
 The results from a network with three hidden layers were similar to the results with a single layer, in general there wasn't much change until it hit epoch 41(shown below). \\
