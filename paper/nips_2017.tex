@@ -38,9 +38,9 @@
 
 \begin{abstract}
 Predicting stock returns is something that has been attempted many times.
-Everyone was looking for a better method than guess work.
+Everyone looking for a better method than guess work.
 When machine learning became popular the techniques were used to train a computer to recognize patterns.
-Machine Learning was successful, and allowed the computer to do better at tasks the more it did them.
+Machine Learning was very successful, and allowed the computer to do better at tasks the more it did them.
 Neural networks, a form of machine learning have also been used, with success, but the most recent one is Deep Learning. 
 Deep Learning is a neural network that has many layers of neurons, it has shown high performance in image recognition. 
 This paper will focus on how deep learning has come into play in the stock market.
@@ -66,6 +66,7 @@ This was shown in the article by Xiao[4] on their model which uses this Natural 
 It may seem like the Stock Market data is so random that a neural network couldn't possibly have a chance at recognizing the patterns. 
 In addition the stock market can change quickly, and a stocks value may drop off for seemingly no reason.
 Since there are methods that are used to predict the stock market it would make sense that machine learning became popular with stock prediction.
+It is a way to get the computer to learn the patterns instead of trying to guess them with various algorithms that may or may not be accurate.
 
 \subsection{Deep Neural Networks}
 There are a variety of frameworks that have been designed to work with a deep learning neural network. 
@@ -75,7 +76,7 @@ Deep Learning is a part of the broad field of Machine Learning.
 It is similar to Neural Networks in that they are networks comprised of perceptrons.
 In deep learning unlike neural networks though, there happens to be more than one hidden layer.
 It learns multiple levels of representations, each corresponds to different levels of abstraction.
-This allows the network to represent complex objects.
+This allows the network to easily represent complex objects.
 "Results show that deep neural networks
 generally outperform shallow neural networks, and the best networks also outperform representative machine learning models."[1]
 
@@ -92,8 +93,7 @@ RNNs are commonly used with language.
 If you are going to try to predict a word in a sentence it helps to know what came before, and in what order.
 So the RNN has a memory of a sort that keeps track of the order the values happened.
 With that in mind it makes sense that the recurrent neural network would be the best suited for predicting the stock market.
-
-What makes the RNN so different is that is is arranged in a sequence. \\
+The stock market values from the past few days affect the result more than those taken years ago. \\
 
 
 \includegraphics[width=\textwidth]{0_WdbXF_e8kZI1R5nQ.png}[8]
@@ -144,9 +144,9 @@ This means that during the testing phase you have a window of say twenty days, y
 Then you would move the window so that the twenty-first day was included and see if the program can tell you the next value.
 
 \subsection{Testing}
-Testing is also used in the training process, it consists of testing the current weights with data that wasn't used during the testing phase. 
+Testing is also used in the training process, it consists of testing the current weights with data that wasn't used during the training phase. 
 At the end of each iteration the training loss and the testing loss can be calculated.
-These values tell you how the network is working.
+These values tell you how well the network is working.
 
 When tests are run the program will print out graphs every few epochs that show the expected result compared to what the program guessed. 
 The graphs below are an example of what that would look like.
@@ -171,7 +171,6 @@ The program that was used as a starting point can be found on github[6].
 It provides command line arguments for most of what you would want to edit in the network for better results.
 
 I chose this one to start from because it seemed the most complete.
-It was also the easiest to install and get running.
 The program has options to look at a single stock, or cover all of them.
 It reads the input from the csv file, then trains the network on it. 
 The training data contains most of the total dataset.
@@ -200,12 +199,9 @@ This graph shows the whole program. Each of the rectangular boxes expands into a
 
 \section{Results of Running the Program}
 The program was run with two hidden layers, three hidden layers, four hidden layers, and five hidden layers. 
-The results are better the fewer layers there are.
+The results were better the fewer layers there were.
 
-
-The two hidden layer network performed very similar to the single layer in the graphs above. \\
-
-\includegraphics[width=.5\textwidth]{AAPL_epoch03_step2.png}
+The two hidden layer network performed very similar to the single layer in the graphs above. 
 
 The results from a network with three hidden layers were similar to the results with a single layer, in general there wasn't much change until it hit epoch 41(shown below). \\
 
@@ -241,17 +237,15 @@ With being able to modify everything, it makes it hard to find the right combina
 Tensorflow is very flexible, and allows a lot of control in how the network is layed out and runs.
 There are a lot of variables in the deep learning network that weren't touched at all. 
 This deep learning model still has a lot of room for improvement in learning to predict how stocks will do.
-
 Other variables that could change to affect the accuracy are the initialization and activation scheme, and early stopping.
 Changing the design of the perceptrons and layers produced drastically different results. 
 Different kinds of neural networks might get better results as well.
 While this program used a Recurrent Neural Network, a Convolutional neural network, or another might be better suited to predicting stocks. 
 
-It isn't possible to find the "best" setup for the job, and there is no universal deep neural network.
-The best that can be hoped for is finding a setup that gets the job done well.
+While I learned a lot through modifying the code, and testing it, I have found that there is a lot more to learn that I haven't even touched yet.
 
-While I learned a lot through modifying the code, and testing it, I have found that there is a lot more to learn that I haven't even touched yet. 
-
+While some people still believe that Stock Market data is too random for a deep neural net to successfully predict, there are people who use deep learning in the stock market to make money.
+This shows that while it may not be possible to predict exactly what the stock market will look like, though you can get better results if you are just trying to learn if it's in an up trend, or down trend.
 
 
 \section*{References}
